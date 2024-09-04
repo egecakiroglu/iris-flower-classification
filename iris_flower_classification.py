@@ -1,3 +1,5 @@
+import ctypes
+
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -46,19 +48,21 @@ print(f"Accuracy: {accuracy}")
 
 
 print("------------------------------------------------------")
+# BURASI KNN.PY İÇİN
 
-
+# veriyi np.array formatına dönüştürdüm
 X_test_cut = np.array(X_test.values)
 X_train_cut = np.array(X_train.values)
 Y_train_cut = np.array(Y_train.values)
 
+
+# gerekli objeyi oluşturup metodları çağırdım
 knnn = Knn(number_of_neighbors=3, X_train=X_train_cut, Y_train=Y_train_cut)
 
 answer = knnn.predict(X_test=X_test_cut)
 # print(answer)
 
-print("------------------------------------------------------")
-
+# answer bir numpy arrayi, onun içindeki lablellardan en çok geçeni seçtim
 ans2 = np.array([])
 versi_num = 0
 virgi_num = 0
@@ -86,6 +90,11 @@ for i in answer[1:]:
 
 print(ans2)
 
+# sonucun isabetini hesapladım
 accuracy_2 = accuracy_score(Y_test, ans2)
 
 print(f"Accuracy: {accuracy_2}")
+
+
+print("------------------------------------------------------")
+# BURASI KNN.CPP İÇİN
